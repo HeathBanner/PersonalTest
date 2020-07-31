@@ -1,0 +1,73 @@
+{
+    "test": [
+        {
+            "question": "What will the code below output to the console?",
+            "codedQuestion": [
+                "(function(){\n   var a = b = 3;\n})();",
+                "console.log(typeof a !== 'undefined');",
+                "console.log(typeof b !== 'undefined');"
+            ],
+            "answer": "a === undefined & b === 3",
+            "options": [
+                "a === undefined & b === 3",
+                "a === 3 & b === 3",
+                "a === 3 & b === undefined",
+                "a === 'b = 3' & b === 3"
+            ],
+            "type": "code"
+        },
+        {
+            "question": "What is a potential pitfall with using typeof bar === 'object' to determine if bar is an object?",
+            "answer": "null may log as true",
+            "options": [
+                "Empty arrays may log as true", 
+                "Use Object instead of 'object'", 
+                "null may log as true",
+                "Use isObject instead of typeof" 
+            ],
+            "type": "multiple-choice"
+        },
+        {
+            "question": "What will the code below output to the console?",
+            "codedQuestion": [
+                "var myObject = {\n  foo: 'bar', \n  func: function() {\n    var self = this;\n    console.log('outer func:  this.foo = ' + this.foo);\n    console.log('outer func:  self.foo = ' + self.foo);\n    (function() {\n      console.log('inner func:  this.foo = ' + this.foo);\n      console.log('inner func:  self.foo = ' + self.foo);\n    }());\n  }\n};\nmyObject.func();"
+            ],
+            "answer": "outer func:  this.foo = bar\nouter func:  self.foo = bar\ninner func:  this.foo = undefined\ninner func:  self.foo = bar",
+            "options": [
+                "outer func:  this.foo = undefined\nouter func:  self.foo = undefined\ninner func:  this.foo = undefined\ninner func:  self.foo = undefined",
+                "outer func:  this.foo = bar\nouter func:  self.foo = undefined\ninner func:  this.foo = bar\ninner func:  self.foo = undefined",
+                "outer func:  this.foo = bar\nouter func:  self.foo = bar\ninner func:  this.foo = bar\ninner func:  self.foo = undefined",
+                "outer func:  this.foo = bar\nouter func:  self.foo = bar\ninner func:  this.foo = undefined\ninner func:  self.foo = bar"
+            ],
+            "type": "code"
+        },
+        {
+            "question": "What is the significance of, and reason for, wrapping the entire content of a JavaScript source file in a function block?",
+            "answer": "To avoid potenential name shadowing/clashes",
+            "options": [
+                "For quicker compiling", 
+                "To avoid potenential name shadowing/clashes", 
+                "Makes code look cleaner",
+                "To execute the function immediately" 
+            ],
+            "type": "multiple-choice"
+        },
+        {
+            "question": "What is the significance, and what are the benefits, of including 'use strict' at the beginning of a JavaScript source file?",
+            "answer": [0, 1, 3, 5, 6, 8],
+            "options": [
+                "Makes debugging easier",
+                "Prevents accidental globals",
+                "Highlights improper syntax",
+                "Eliminates 'this' coercion",
+                "Forces values to be stored using data type constructors",
+                "Disallows duplicate parameter values",
+                "Makes eval() safer",
+                "Disallows '==' operators",
+                "Throws error on invalid usage of 'delete'"
+            ],
+            "type": "checkbox"
+        }
+
+    ]
+}

@@ -3,30 +3,20 @@ import { withRouter } from 'react-router-dom';
 
 import Introduction from '../../components/Test/Introduction';
 import QnA from '../../components/Test/QnA';
-
-const questionData = [
-    {
-        question: 'Who is president?',
-        answer: 'Donald Trump',
-        options: ['Donald Trump', 'Barack Obama', 'George W. Bush', 'Bill Clinton']
-    },
-    {
-        question: 'How many fingers does the average human possess?',
-        answer: 10,
-        options: [3, 6, 8, 10]
-    }
-];
+import TestQuestions from './TestQuestions.json';
 
 class Index extends Component {
 
     constructor(props) {
         super(props);
         this.param = this.props.match.params.test.toUpperCase();
-        this.background = { 'background-image': 'linear-gradient(-60deg, #ff5858 0%, #f09819 100%)' };
+        this.background = { 'backgroundImage': 'linear-gradient(-60deg, #ff5858 0%, #f09819 100%)' };
+        this.questionData = TestQuestions.test;
         this.state = {
             question: 0,
             correct: 0,
             incorrect: 0,
+            checked: []
         };
     };
 
@@ -34,21 +24,35 @@ class Index extends Component {
         if (this.state.question === 0) {
             return this.setState((state) => ({ ...state, question: 1 }));
         }
-
-        console.log(guess, questionData[this.state.question].answer);
-
-        if (guess !== questionData[this.state.question - 1].answer) {
+        if (guess !== this.questionData[this.state.question - 1].answer) {
             return this.setState((state) => ({
                 ...state,
                 question: state.question++,
                 incorrect: state.incorrect++,
+                checked: []
             }));
         }
 
         this.setState((state) => ({
             ...state,
             question: state.question++,
-            correct: state.correct++
+            correct: state.correct++,
+            checked: []
+        }));
+    };
+
+    handleCheckbox = (index) => {
+        let newResult = this.state.checked;
+        const checkedIndex = this.state.checked.indexOf(index);
+        if (checkedIndex >= 0) {
+            newResult.splice(checkedIndex, 1);
+        } else {
+            newResult = [...newResult, index];
+        }
+
+        this.setState((state) => ({
+            ...state,
+            checked: newResult
         }));
     };
 
@@ -59,8 +63,10 @@ class Index extends Component {
                 <Introduction param={this.param} handleNext={this.handleNext} />
                 :
                 <QnA
-                    questionData={questionData[this.state.question - 1]}
+                    questionData={this.questionData[this.state.question - 1]}
                     handleNext={this.handleNext}
+                    handleCheckbox={this.handleCheckbox}
+                    checked={this.state.checked}
                 />    
             }
 
