@@ -63,6 +63,21 @@ export default ({ questionData, handleNext, handleCheckbox, checked }) => {
                 </h3>
                 {questionData.options.map((option, index) => {
                     const isChecked = checked.indexOf(index) >= 0;
+                    if (questionData.hasCodedOptions) {
+                        return (
+                            <button
+                                key={`option${index}`}
+                                onClick={() => handleNext(option)}
+                                className="buttons code-buttons mb2"
+                            >
+                                <pre className="wt">
+                                    <code className="fl tal">
+                                        {option}
+                                    </code>
+                                </pre>
+                            </button>
+                        );
+                    }
                     return (
                         <button
                             key={`option${index}`}
@@ -73,6 +88,13 @@ export default ({ questionData, handleNext, handleCheckbox, checked }) => {
                         </button>
                     );
                 })}
+
+                <button
+                    className='buttons mb2 wt code-buttons'
+                    onClick={handleNext}
+                >
+                    Next
+                </button>
             </>
         );
     }

@@ -13,32 +13,30 @@ class Index extends Component {
         this.background = { 'backgroundImage': 'linear-gradient(-60deg, #ff5858 0%, #f09819 100%)' };
         this.questionData = TestQuestions.test;
         this.state = {
-            question: 0,
+            question: 7,
             correct: 0,
             incorrect: 0,
             checked: []
         };
     };
 
-    handleNext = (guess) => {
+    handleNext = async (guess) => {
         if (this.state.question === 0) {
             return this.setState((state) => ({ ...state, question: 1 }));
         }
-        if (guess !== this.questionData[this.state.question - 1].answer) {
-            return this.setState((state) => ({
-                ...state,
-                question: state.question++,
-                incorrect: state.incorrect++,
-                checked: []
-            }));
-        }
 
-        this.setState((state) => ({
-            ...state,
-            question: state.question++,
-            correct: state.correct++,
-            checked: []
-        }));
+        const answer = this.questionData[this.state.question - 1].answer;
+        const type = this.questionData[this.state.question - 1].type;    
+        let result;
+        if (type === 'checkbox') {
+            const { handleCheckbox } = await import('./services');
+            result = handleCheckbox(answer, this.state);
+        } else {
+            const { handleMultiple } = await import('./services');
+            result = handleMultiple(guess, answer, this.state);
+        }
+        
+        this.setState(result);
     };
 
     handleCheckbox = (index) => {
