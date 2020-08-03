@@ -67,7 +67,71 @@
                 "Throws error on invalid usage of 'delete'"
             ],
             "type": "checkbox"
+        },
+        {
+            "question": "Consider the two functions below. Will they both return the same thing? Why or why not?",
+            "codedQuestion": [
+                "function foo1() {\n  return {\n    bar: 'hello'\n  };\n}",
+                "function foo2() {\n  return\n  {\n    bar: 'hello'\n  };\n}"
+            ],
+            "answer": "foo1 returns: Object {bar: 'hello'}\nfoo2 returns: undefined",
+            "options": [
+                "foo1 returns: Object {bar: 'hello'}\nfoo2 returns: Object {bar: 'hello'}",
+                "foo1 returns: Object {bar: 'hello'}\nfoo2 returns: undefined",
+                "foo1 returns: undefined\nfoo2 returns: Object {bar: 'hello'}",
+                "foo1 returns: undefined\nfoo2 returns: undefined"
+            ],
+            "type": "code"
+        },
+        {
+            "question": "What is NaN's type?",
+            "answer": "Number",
+            "options": [
+                "Boolean",
+                "Object",
+                "Number",
+                "String"
+            ],
+            "type": "multiple-choice"
+        },
+        {
+            "question": "What will the code below output?",
+            "codedQuestion": [
+                "console.log(0.1 + 0.2);\n",
+                "console.log(0.1 + 0.2 == 0.3);"
+            ],
+            "answer": "0.30000000000000004\nfalse",
+            "options": [
+                "0.30000000000000004\nfalse",
+                "0.3\ntrue",
+                "0.3\nfalse",
+                "'0.10.2'\nfalse"
+            ],
+            "type": "code"
+        },
+        {
+            "question": "What're all the possible ways to write a function isInteger(x) that determines if x is an integer?",
+            "answer": [0, 3],
+            "options": [
+                "function isInteger(x) {\n  return (typeof x === 'number') &&\n  (x % 1 === 0);\n}",
+                "function isInteger(x) {\n  return Math.round(x) === x;\n}",
+                "function isInteger(x) {\n  return parseInt(x, 10) === x;\n}",
+                "function isInteger(x) {\n  return (x ^ 0) === x;\n}"
+            ],
+            "type": "checkbox",
+            "hasCodedOptions": true
+        },
+        {
+            "question": "In what order will the numbers 1-4 be logged to the console when the code below is executed? Why?",
+            "codedQuestion": ["(function() {\n  console.log(1);\n  setTimeout(function(){console.log(2)}, 1000);\n  setTimeout(function(){console.log(3)}, 0);\n  console.log(4);\n})();"],
+            "answer": "1, 4, 3, 2",
+            "options": [
+                "1, 4, 2, 3",
+                "1, 3, 4, 2",
+                "1, 4, 3, 2",
+                "1, 3, 2, 4"
+            ],
+            "type": "code"
         }
-
     ]
 }
