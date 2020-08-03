@@ -1,5 +1,18 @@
+/* Tag specific styles */
 body {
   font-family: 'Roboto', sans-serif !important;
+}
+
+pre {
+  overflow: auto;
+  overflow-x: scroll;
+  margin-bottom: 0px !important;
+  font-size: 0.9rem !important;
+}
+
+pre > code {
+  display: block;
+  word-wrap: normal;
 }
 
 .links {
@@ -8,6 +21,7 @@ body {
   width: 100%;
 }
 
+/* styles involving or related to buttons */
 .buttons {
   margin: 10px 0px;
   width: 100%;
@@ -16,6 +30,10 @@ body {
   padding: 10px;
   color: inherit;
 }
+
+.code-buttons { background: rgb(0, 0, 0, 0.6); }
+.code-buttons-checked { background: rgb(52, 199, 91, 0.6) }
+
 .testing {
   background: rgb(0, 0, 0, 0.2);
 }
@@ -25,8 +43,17 @@ body {
   padding: 5% 25%;
 }
 
+/* styles involving or related to containers */
 .height-pin {
-  height: 100vh !important;
+  min-height: 100vh !important;
+}
+
+.centered {
+  display: flex;
+  align-items: center;
+  align-content: center;
+  justify-content: center;
+  flex-wrap: wrap;
 }
 
 .centered-container {
@@ -48,7 +75,21 @@ body {
   justify-content: center;
   flex-wrap: wrap;
   flex-grow: 4;
-  height: 100%;
+  padding: 5% 5%;
+  /* height: 100%; */
+}
+
+.paper {
+  display: flex;
+  align-content: center;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: wrap;
+  padding: 5% 10%;
+  background: #fff;
+  border-radius: 10px;
+  color: inherit;
+  box-shadow: 2px 2px 5px 2px rgb(0, 0, 0, 0.2);
 }
 
 .centered-paper {
@@ -65,6 +106,7 @@ body {
   box-shadow: 2px 2px 5px 2px rgb(0, 0, 0, 0.2);
 }
 
+/* styles involving or related to text tags */
 .centered-ptag {
   text-align: center;
   margin-bottom: 25px;
@@ -91,6 +133,19 @@ body {
   left: 0%;
   transform: translate(40%, 40%);
 }
+
+/* General tags involving or related to minor adjustments */
+.mb1 { margin-bottom: 10px !important; }
+.mb2 { margin-bottom: 20px !important; }
+
+.wt { color: #fff; }
+
+.fl { width: 100%; }
+
+.tal { text-align: left; }
+
+.cq { font-size: 0.7rem; }
+
 
 .fade-enter {
   /* -webkit-transform:translateX(200%);

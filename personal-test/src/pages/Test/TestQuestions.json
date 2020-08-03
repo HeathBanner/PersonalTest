@@ -1,0 +1,137 @@
+{
+    "test": [
+        {
+            "question": "What will the code below output to the console?",
+            "codedQuestion": [
+                "(function(){\n   var a = b = 3;\n})();",
+                "console.log(typeof a !== 'undefined');",
+                "console.log(typeof b !== 'undefined');"
+            ],
+            "answer": "a === undefined & b === 3",
+            "options": [
+                "a === undefined & b === 3",
+                "a === 3 & b === 3",
+                "a === 3 & b === undefined",
+                "a === 'b = 3' & b === 3"
+            ],
+            "type": "code"
+        },
+        {
+            "question": "What is a potential pitfall with using typeof bar === 'object' to determine if bar is an object?",
+            "answer": "null may log as true",
+            "options": [
+                "Empty arrays may log as true", 
+                "Use Object instead of 'object'", 
+                "null may log as true",
+                "Use isObject instead of typeof" 
+            ],
+            "type": "multiple-choice"
+        },
+        {
+            "question": "What will the code below output to the console?",
+            "codedQuestion": [
+                "var myObject = {\n  foo: 'bar', \n  func: function() {\n    var self = this;\n    console.log('outer func:  this.foo = ' + this.foo);\n    console.log('outer func:  self.foo = ' + self.foo);\n    (function() {\n      console.log('inner func:  this.foo = ' + this.foo);\n      console.log('inner func:  self.foo = ' + self.foo);\n    }());\n  }\n};\nmyObject.func();"
+            ],
+            "answer": "outer func:  this.foo = bar\nouter func:  self.foo = bar\ninner func:  this.foo = undefined\ninner func:  self.foo = bar",
+            "options": [
+                "outer func:  this.foo = undefined\nouter func:  self.foo = undefined\ninner func:  this.foo = undefined\ninner func:  self.foo = undefined",
+                "outer func:  this.foo = bar\nouter func:  self.foo = undefined\ninner func:  this.foo = bar\ninner func:  self.foo = undefined",
+                "outer func:  this.foo = bar\nouter func:  self.foo = bar\ninner func:  this.foo = bar\ninner func:  self.foo = undefined",
+                "outer func:  this.foo = bar\nouter func:  self.foo = bar\ninner func:  this.foo = undefined\ninner func:  self.foo = bar"
+            ],
+            "type": "code"
+        },
+        {
+            "question": "What is the significance of, and reason for, wrapping the entire content of a JavaScript source file in a function block?",
+            "answer": "To avoid potenential name shadowing/clashes",
+            "options": [
+                "For quicker compiling", 
+                "To avoid potenential name shadowing/clashes", 
+                "Makes code look cleaner",
+                "To execute the function immediately" 
+            ],
+            "type": "multiple-choice"
+        },
+        {
+            "question": "What is the significance, and what are the benefits, of including 'use strict' at the beginning of a JavaScript source file?",
+            "answer": [0, 1, 3, 5, 6, 8],
+            "options": [
+                "Makes debugging easier",
+                "Prevents accidental globals",
+                "Highlights improper syntax",
+                "Eliminates 'this' coercion",
+                "Forces values to be stored using data type constructors",
+                "Disallows duplicate parameter values",
+                "Makes eval() safer",
+                "Disallows '==' operators",
+                "Throws error on invalid usage of 'delete'"
+            ],
+            "type": "checkbox"
+        },
+        {
+            "question": "Consider the two functions below. Will they both return the same thing? Why or why not?",
+            "codedQuestion": [
+                "function foo1() {\n  return {\n    bar: 'hello'\n  };\n}",
+                "function foo2() {\n  return\n  {\n    bar: 'hello'\n  };\n}"
+            ],
+            "answer": "foo1 returns: Object {bar: 'hello'}\nfoo2 returns: undefined",
+            "options": [
+                "foo1 returns: Object {bar: 'hello'}\nfoo2 returns: Object {bar: 'hello'}",
+                "foo1 returns: Object {bar: 'hello'}\nfoo2 returns: undefined",
+                "foo1 returns: undefined\nfoo2 returns: Object {bar: 'hello'}",
+                "foo1 returns: undefined\nfoo2 returns: undefined"
+            ],
+            "type": "code"
+        },
+        {
+            "question": "What is NaN's type?",
+            "answer": "Number",
+            "options": [
+                "Boolean",
+                "Object",
+                "Number",
+                "String"
+            ],
+            "type": "multiple-choice"
+        },
+        {
+            "question": "What will the code below output?",
+            "codedQuestion": [
+                "console.log(0.1 + 0.2);\n",
+                "console.log(0.1 + 0.2 == 0.3);"
+            ],
+            "answer": "0.30000000000000004\nfalse",
+            "options": [
+                "0.30000000000000004\nfalse",
+                "0.3\ntrue",
+                "0.3\nfalse",
+                "'0.10.2'\nfalse"
+            ],
+            "type": "code"
+        },
+        {
+            "question": "What're all the possible ways to write a function isInteger(x) that determines if x is an integer?",
+            "answer": [0, 3],
+            "options": [
+                "function isInteger(x) {\n  return (typeof x === 'number') &&\n  (x % 1 === 0);\n}",
+                "function isInteger(x) {\n  return Math.round(x) === x;\n}",
+                "function isInteger(x) {\n  return parseInt(x, 10) === x;\n}",
+                "function isInteger(x) {\n  return (x ^ 0) === x;\n}"
+            ],
+            "type": "checkbox",
+            "hasCodedOptions": true
+        },
+        {
+            "question": "In what order will the numbers 1-4 be logged to the console when the code below is executed? Why?",
+            "codedQuestion": ["(function() {\n  console.log(1);\n  setTimeout(function(){console.log(2)}, 1000);\n  setTimeout(function(){console.log(3)}, 0);\n  console.log(4);\n})();"],
+            "answer": "1, 4, 3, 2",
+            "options": [
+                "1, 4, 2, 3",
+                "1, 3, 4, 2",
+                "1, 4, 3, 2",
+                "1, 3, 2, 4"
+            ],
+            "type": "code"
+        }
+    ]
+}

@@ -25,7 +25,7 @@ export default class Index extends Component {
     constructor(props) {
         super(props);
         this.state = { counter: 0 };
-        this.background = { 'background-image': 'linear-gradient(60deg, #96deda 0%, #50c9c3 100%)' };
+        this.background = { 'backgroundImage': 'linear-gradient(60deg, #96deda 0%, #50c9c3 100%)' };
     };
 
     increment = () => {
