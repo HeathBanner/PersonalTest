@@ -5,6 +5,7 @@ import Introduction from '../../components/Test/Introduction';
 import Code from '../../components/Test/Code';
 import MultipleChoice from '../../components/Test/MultipleChoice';
 import Checkbox from '../../components/Test/Checkbox';
+import GameOver from '../../components/Test/GameOver';
 import TestQuestions from './TestQuestions.json';
 
 class Index extends Component {
@@ -18,28 +19,33 @@ class Index extends Component {
             question: 7,
             correct: 0,
             incorrect: 0,
+            review: [],
+            reviewData: [],
             checked: [],
             finished: false
         };
+    };
+
+    componentDidUpdate(prevProps, prevState) {
+        if (prevState.finished === false && this.state.finished === true) {
+            console.log('DID UPDATE TO FINISHED\n');
+            console.log(this.state);
+        }
     };
 
     handleNext = async (guess) => {
         if (this.state.question === 0) {
             return this.setState((state) => ({ ...state, question: 1 }));
         }
-        else if (this.state.question === 10) {
-            return this.setState((state) => ({ ...state, finished: true }));
-        }
 
-        const answer = this.questionData[this.state.question - 1].answer;
         const type = this.questionData[this.state.question - 1].type;    
         let result;
         if (type === 'checkbox') {
             const { handleCheckbox } = await import('./services');
-            result = handleCheckbox(answer, this.state);
+            result = handleCheckbox(this.state, this.questionData);
         } else {
             const { handleMultiple } = await import('./services');
-            result = handleMultiple(guess, answer, this.state);
+            result = handleMultiple(guess, this.state, this.questionData);
         }
         
         this.setState(result);
@@ -65,7 +71,7 @@ class Index extends Component {
             return <Introduction param={this.param} handleNext={this.handleNext} />;
         }
         else if (this.state.finished) {
-            return 
+            return <GameOver />;
         }
 
         const data = this.questionData[this.state.question - 1];
