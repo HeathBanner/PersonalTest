@@ -12,9 +12,9 @@ export default function({ questionData, checked, handleNext, handleCheckbox }) {
                     return (
                         <button
                             key={`option${index}`}
-                            onClick={() => handleNext(option)}
-                            className="buttons code-buttons mb2"
-                        >
+                            onClick={() => handleCheckbox(index)}
+                            className={`buttons mb2 wt ${isChecked ? 'code-buttons-checked': 'code-buttons'}`}
+                            >
                             <pre className="wt">
                                 <code className="fl tal">
                                     {option}
