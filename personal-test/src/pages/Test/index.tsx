@@ -21,7 +21,7 @@ class Index extends React.Component<any, IState> {
         this.background = { 'backgroundImage': 'linear-gradient(-60deg, #ff5858 0%, #f09819 100%)' };
         this.questionData = TestQuestions.test;
         this.state = {
-            question: 7,
+            question: 0,
             correct: 0,
             incorrect: 0,
             review: [],
@@ -39,10 +39,10 @@ class Index extends React.Component<any, IState> {
         const type : string = this.questionData[this.state.question - 1].type;    
         let result : IState;
         if (type === 'checkbox') {
-            const { handleCheckbox } = await import('./services/test');
+            const { handleCheckbox } = await import(/* webpackChunkName: "service" */ './services/test');
             result = handleCheckbox(this.state, this.questionData);
         } else {
-            const { handleMultiple } = await import('./services/test');
+            const { handleMultiple } = await import(/* webpackChunkName: "service" */ './services/test');
             result = handleMultiple(guess, this.state, this.questionData);
         }
         
