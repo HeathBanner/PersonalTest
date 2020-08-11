@@ -1,9 +1,10 @@
+import { hot } from 'react-hot-loader/root';
 import React from 'react';
 import { Switch, Route, BrowserRouter, useLocation } from 'react-router-dom';
 import { TransitionGroup, CSSTransition } from 'react-transition-group';
 
 import Home from './pages/Home/index';
-import Test from './pages/Test/index';
+import Test from './pages/Test/index.tsx';
 import './App.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
 
@@ -25,7 +26,7 @@ function AnimationApp() {
   );
 };
 
-export default function App() {
+function App() {
   return (
     <BrowserRouter>
       <Switch>
@@ -36,3 +37,5 @@ export default function App() {
     </BrowserRouter>
   );
 };
+
+export default hot(App);
