@@ -7,7 +7,7 @@ import MultipleChoice from '../../components/Test/MultipleChoice';
 import Checkbox from '../../components/Test/Checkbox';
 import GameOver from '../../components/Test/GameOver';
 import TestQuestions from './TestQuestions.json';
-import { IState, IQuestions } from './services';
+import { IState, IQuestions } from '../../services/testServices';
 
 class Index extends React.Component<any, IState> {
 
@@ -39,10 +39,10 @@ class Index extends React.Component<any, IState> {
         const type : string = this.questionData[this.state.question - 1].type;    
         let result : IState;
         if (type === 'checkbox') {
-            const { handleCheckbox } = await import(/* webpackChunkName: "service" */ './services');
+            const { handleCheckbox } = await import(/* webpackChunkName: "service" */ '../../services/testServices');
             result = handleCheckbox(this.state, this.questionData);
         } else {
-            const { handleMultiple } = await import(/* webpackChunkName: "service" */ './services');
+            const { handleMultiple } = await import(/* webpackChunkName: "service" */ '../../services/testServices');
             result = handleMultiple(guess, this.state, this.questionData);
         }
         
