@@ -1,5 +1,5 @@
 import React, { PureComponent } from 'react';
-import { IQuestions } from '../../pages/Test/services/interfaces';
+import { IQuestions } from '../../services/testServices';
 
 type Props = {
     questionData : IQuestions,
@@ -10,12 +10,14 @@ type Props = {
 
 export default class Checkbox extends PureComponent<Props> {
     render() {
+        let options : string[] | number[] = this.props.questionData.options;
+        const mappableOptions = options as (string | number)[];
         return (
             <>
                 <h3 className="centered-heading wt">
                     {this.props.questionData.question}
                 </h3>
-                {this.props.questionData.options.map((option, index) => {
+                {mappableOptions.map((option, index) => {
                     const isChecked = this.props.checked.indexOf(index) >= 0;
                     if (this.props.questionData.hasCodedOptions) {
                         return (
