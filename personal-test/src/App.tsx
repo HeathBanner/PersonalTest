@@ -3,8 +3,8 @@ import React from 'react';
 import { Switch, Route, BrowserRouter, useLocation } from 'react-router-dom';
 import { TransitionGroup, CSSTransition } from 'react-transition-group';
 
-import Home from './pages/Home/index';
-import Test from './pages/Test/index.tsx';
+import Home from './pages/Home';
+import Test from './pages/Test';
 import './App.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
 
