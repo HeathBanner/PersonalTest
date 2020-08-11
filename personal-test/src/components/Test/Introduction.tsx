@@ -27,7 +27,7 @@ export default class Introduction extends PureComponent<Props> {
                     <h3 className="centered-heading">
                         Click to get started!
                     </h3>
-                    <button onClick={() => this.props.handleNext} className="buttons testing">
+                    <button onClick={() => this.props.handleNext("intro")} className="buttons testing">
                         START
                     </button>
                 </div>
