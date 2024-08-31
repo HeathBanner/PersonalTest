@@ -25,7 +25,7 @@
     "react-hot-loader": "^4.12.21",
     "react-icons": "^3.10.0",
     "react-router-dom": "^5.2.0",
-    "react-scripts": "3.4.1",
+    "react-scripts": "5.0.1",
     "react-transition-group": "^4.4.1",
     "style-loader": "^1.2.1",
     "typescript": "^3.9.7",
@@ -62,6 +62,6 @@
     "@babel/plugin-syntax-dynamic-import": "^7.8.3",
     "awesome-typescript-loader": "^5.2.1",
     "interpolate-html-plugin": "^3.0.0",
-    "webpack": "^4.44.1"
+    "webpack": "^5.94.0"
   }
 }
